@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  margin: auto;
+  width: 50%;
+  flex-direction: column;
+  /* justify-content: flex-end; */
+}
+
+/* .handle {
+ 
+} */
+
+.items {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  color: brown;
+}
