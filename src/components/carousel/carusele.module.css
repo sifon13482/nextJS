@@ -3,12 +3,7 @@
   margin: auto;
   width: 50%;
   flex-direction: column;
-  /* justify-content: flex-end; */
 }
-
-/* .handle {
- 
-} */
 
 .items {
   display: flex;

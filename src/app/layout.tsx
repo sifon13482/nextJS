@@ -1,12 +1,17 @@
 import { Footer } from "@/components/footer/footer";
 import { Header } from "@/components/header/header";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
-const RootLayout: FC<
-  Readonly<{
-    children: React.ReactNode;
-  }>
-> = ({ children }) => {
+interface LayoutProps {
+  children: ReactNode; // Универсальный тип для children
+  // children?: ReactElement; // Только React элементы, ? - необязательный пропс
+}
+
+// Тип FC<Readonly> свойства объекта неизменяемые (readonly).
+// помогает избежать непреднамеренных мутаций пропсов
+// или состояния внутри компонента.
+
+const RootLayout: FC<Readonly<LayoutProps>> = ({ children }) => {
   return (
     <html lang="en">
       <body>
@@ -19,15 +24,3 @@ const RootLayout: FC<
 };
 
 export default RootLayout;
-
-// export default function RootLayout({
-//   children,
-// }: Readonly<{
-//   children: React.ReactNode;
-// }>) {
-//   return (
-//     <html lang="en">
-//       <body>{children}</body>
-//     </html>
-//   );
-// }

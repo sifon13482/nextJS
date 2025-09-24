@@ -1,23 +1,14 @@
-"use client"
+"use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { FC } from "react";
+import { Link } from "../link/link";
 
 export const Header: FC = () => {
-
-  const pathname = usePathname()
-  console.log(pathname === '/')
-
   return (
     <div>
       <h1>TENNIS STORE</h1>
-      <Link prefetch={false} href="/rackets">
-        rackets
-      </Link>
-      <Link prefetch={false} href="/">
-        home
-      </Link>
+      <Link href="/rackets">rackets</Link>
+      <Link href="/">home</Link>
     </div>
   );
 };

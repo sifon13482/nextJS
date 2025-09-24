@@ -1,13 +1,14 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { rackets } from "@/constants/mock";
 
 interface ComponentProps {
-  id: string;
+  racketId: string;
 }
 
-export const Racket: FC<ComponentProps> = ({ id }) => {
-  const [rosketId, setRosketId] = useState(id);
-  const racket = rackets.find(({ id }) => id == rosketId);
+export const Racket: FC<ComponentProps> = ({ racketId }) => {
+
+  const racket = rackets.find(({ id }) => id == +racketId);
+
   return (
     <div>
       <div>{racket.name}</div>

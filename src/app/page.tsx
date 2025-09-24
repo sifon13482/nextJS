@@ -1,8 +1,3 @@
-import { Home } from "@/components/home/home";
-import { FC } from "react";
+import { HomeContainer } from "@/components/home/homeContainer";
 
-const Page: FC = () => {
-  return <Home />;
-};
-
-export default Page;
+export default HomeContainer;
