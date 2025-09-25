@@ -1,7 +1,4 @@
-"use client";
-
 import { Racket } from "@/components/racket/racket";
-import { useParams } from "next/navigation";
 import { FC } from "react";
 
 export const generateStaticParams = () => {
@@ -12,11 +9,11 @@ type Props = {
   params: Promise<{ racketId: string }>;
 };
 
-const RacketPage: FC<Props> = () => {
-  const { racketId } = useParams();
+const RacketPage: FC<Props> = async ({ params }) => {
+  const { racketId } = await params;
 
   if (typeof racketId !== "string") {
-    return null
+    return null;
   }
 
   return <Racket racketId={racketId} />;

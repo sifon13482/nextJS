@@ -5,18 +5,32 @@ interface ComponentProps {
   racketId: string;
 }
 
-export const Racket: FC<ComponentProps> = ({ racketId }) => {
+type DisplayedRacket = {
+  name: string;
+  imageUrl: string;
+  price: number;
+  model: string;
+  year: number;
+  description: string;
+};
 
+export const Racket: FC<ComponentProps> = ({ racketId }) => {
   const racket = rackets.find(({ id }) => id == +racketId);
 
+  if (!racket) {
+    return null;
+  }
+
+  const { name, imageUrl, price, model, year, description }: DisplayedRacket =
+    racket;
   return (
     <div>
-      <div>{racket.name}</div>
-      <img src={racket.imageUrl}></img>
-      <div>{racket.price}</div>
-      <div>{racket.model}</div>
-      <div>{racket.year}</div>
-      <div>{racket.description}</div>
+      <div>{name}</div>
+      <img src={imageUrl}></img>
+      <div>{price}</div>
+      <div>{model}</div>
+      <div>{year}</div>
+      <div>{description}</div>
     </div>
   );
 };
