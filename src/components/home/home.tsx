@@ -6,5 +6,9 @@ type HomeProps = {
 };
 
 export const Home: FC<HomeProps> = ({ racketsAll }) => {
-  return <Carousel racketsAll={racketsAll} />;
+  return (
+    <div>
+      <Carousel racketsAll={racketsAll} />;
+    </div>
+  );
 };

@@ -35,7 +35,7 @@ export const Carousel: FC<CarouselProps> = ({ racketsAll }) => {
         {displayedRackets.map(
           ({ id, imageUrl, name, model }: DisplayedRackets) => (
             <p key={id}>
-              <img src={imageUrl} />
+              <img className={styles.img} src={imageUrl} />
               <br></br>
               {name}
               <br></br>

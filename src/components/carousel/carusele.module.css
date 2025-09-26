@@ -1,4 +1,5 @@
 .container {
+  width: 500px;
   display: flex;
   margin: auto;
   width: 50%;
@@ -6,8 +7,13 @@
 }
 
 .items {
+  width: 300px;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   color: brown;
+}
+
+.img{
+  width: 100px;
 }
