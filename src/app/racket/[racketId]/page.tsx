@@ -1,9 +1,8 @@
-import { Racket } from "@/components/racket/racket";
+import { RacketContainer } from "@/components/racket/racketContainer";
+import { getRacketById } from "@/services/getRacketById";
 import { FC } from "react";
+import RacketNotFound from "./notFound";
 
-export const generateStaticParams = () => {
-  return [{ racketId: "1" }, { racketId: "2" }, { racketId: "3" }];
-};
 
 type Props = {
   params: Promise<{ racketId: string }>;
@@ -11,12 +10,20 @@ type Props = {
 
 const RacketPage: FC<Props> = async ({ params }) => {
   const { racketId } = await params;
-
   if (typeof racketId !== "string") {
     return null;
   }
+  const { isError, data } = await getRacketById({ racketId });
 
-  return <Racket racketId={racketId} />;
+  
+  if (isError) {
+    return "isError";
+  }
+  if (!data) {
+    return RacketNotFound();
+  }
+
+  return <RacketContainer racket={data} />;
 };
 
 export default RacketPage;
