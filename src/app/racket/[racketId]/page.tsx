@@ -1,7 +1,8 @@
 import { RacketContainer } from "@/components/racket/racketContainer";
 import { getRacketById } from "@/services/getRacketById";
 import { FC } from "react";
-import notFound from "./not-found";
+import { notFound } from "next/navigation";
+
 
 
 type Props = {

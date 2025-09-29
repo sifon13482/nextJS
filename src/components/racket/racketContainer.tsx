@@ -1,17 +1,17 @@
 import { FC } from "react";
 import { IRacket } from "@/types/racket";
-import { getRacketById } from "@/services/getRacketById";
 
-interface ComponentProps {
-  racket: object;
-}
+type RacketProps = {
+  racket: IRacket;
+};
 
-export const RacketContainer: FC<ComponentProps> = ({ racket }) => {
+export const RacketContainer: FC<RacketProps> = ({ racket }) => {
   if (!racket) {
     return null;
   }
 
-  const { name, imageUrl, price, model, year, description }: IRacket = racket;
+  const { name, imageUrl, price, model, year, description } = racket;
+
   return (
     <div>
       <div>{name}</div>
