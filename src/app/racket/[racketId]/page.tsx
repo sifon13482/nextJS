@@ -1,7 +1,7 @@
 import { RacketContainer } from "@/components/racket/racketContainer";
 import { getRacketById } from "@/services/getRacketById";
 import { FC } from "react";
-import RacketNotFound from "./notFound";
+import notFound from "./not-found";
 
 
 type Props = {
@@ -20,7 +20,7 @@ const RacketPage: FC<Props> = async ({ params }) => {
     return "isError";
   }
   if (!data) {
-    return RacketNotFound();
+    return notFound();
   }
 
   return <RacketContainer racket={data} />;
