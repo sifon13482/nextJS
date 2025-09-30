@@ -1,4 +1,4 @@
-import { FC, Suspense } from "react";
+import { FC } from "react";
 
 import { Home } from "./home";
 import { getRackets } from "@/services/getRackets";
@@ -18,11 +18,10 @@ export const HomeContainer: FC = async () => {
   }
 
   return (
-    <Suspense fallback={<div>racketsAll Loading.......</div>}>
+   
       <Home
         racketsAll={resultRackets.data}
         racketsTop10={resultRacketsTop10.data}
       />
-    </Suspense>
   );
 };
