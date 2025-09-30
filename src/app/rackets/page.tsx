@@ -1,3 +1,3 @@
-import { Rackets } from "@/components/rackets/rackets";
+import { RacketsContainer } from "@/components/rackets/racketsContainer";
 
-export default Rackets;
+export default RacketsContainer;

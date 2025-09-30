@@ -9,6 +9,7 @@ export const Header: FC = () => {
       <h1>TENNIS STORE</h1>
       <Link href="/rackets">rackets</Link>
       <Link href="/">home</Link>
+      <Link href="/racketsTop10">TOP10</Link>
     </div>
   );
 };
