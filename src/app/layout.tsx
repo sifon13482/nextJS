@@ -1,5 +1,7 @@
 import { Footer } from "@/components/footer/footer";
 import { Header } from "@/components/header/header";
+import { Metadata } from "next";
+import NextTopLoader from "nextjs-toploader";
 import { FC, ReactNode } from "react";
 
 interface LayoutProps {
@@ -11,10 +13,16 @@ interface LayoutProps {
 // помогает избежать непреднамеренных мутаций пропсов
 // или состояния внутри компонента.
 
+export const metadata: Metadata = {
+  title: "Tennis shop",
+  description: "base next.js",
+};
+
 const RootLayout: FC<Readonly<LayoutProps>> = ({ children }) => {
   return (
     <html lang="en">
       <body>
+        <NextTopLoader color={"red"} showSpinner={false}/>
         <Header />
         {children}
         <Footer />

@@ -1,0 +1,1 @@
+export const TOP_10_REQUEST_TAG = "getTop10Rackets";

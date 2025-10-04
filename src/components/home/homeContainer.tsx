@@ -18,10 +18,9 @@ export const HomeContainer: FC = async () => {
   }
 
   return (
-   
-      <Home
-        racketsAll={resultRackets.data}
-        racketsTop10={resultRacketsTop10.data}
-      />
+    <Home
+      racketsAll={resultRackets.data}
+      racketsTop10={resultRacketsTop10.data}
+    />
   );
 };
