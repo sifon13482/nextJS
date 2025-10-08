@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { IRacket } from "@/types/racket";
+import { RacketCard } from "../racketCard/racketCard";
 
 type RacketProps = {
   racket: IRacket;
@@ -13,13 +14,13 @@ export const RacketContainer: FC<RacketProps> = ({ racket }) => {
   const { name, imageUrl, price, model, year, description } = racket;
 
   return (
-    <div>
-      <div>{name}</div>
-      <img src={imageUrl}></img>
-      <div>{price}</div>
-      <div>{model}</div>
-      <div>{year}</div>
-      <div>{description}</div>
-    </div>
+    <RacketCard
+      name={name}
+      imageUrl={imageUrl}
+      price={price}
+      model={model}
+      year={year}
+      description={description}
+    />
   );
 };

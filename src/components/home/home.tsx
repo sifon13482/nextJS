@@ -1,9 +1,10 @@
 import { FC} from "react";
 import { Carousel } from "../carousel/carousel";
+import { IRacket } from "@/types/racket";
 
 type HomeProps = {
-  racketsAll: object[];
-  racketsTop10: object[];
+  racketsAll: IRacket[];
+  racketsTop10: IRacket[];
 };
 
 export const Home: FC<HomeProps> = ({ racketsAll, racketsTop10 }) => {
