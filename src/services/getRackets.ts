@@ -17,6 +17,7 @@ export const getRackets = async ({
       },
     }
   );
+  console.log(cookieStore)
 
   if (result.status === 404) {
     return { isError: false, data: undefined };

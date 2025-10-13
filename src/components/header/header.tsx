@@ -16,6 +16,7 @@ export const Header: FC = () => {
       <Link href="/racketsTop10">TOP10</Link>
       {!user && <Link href="/login">login</Link>}
       {!user && <Link href="/signUp">signUp</Link>}
+      {user && <Link href="/admin">admin panel</Link>}
       <p>{user?.login}</p>
       {user && <LogOut />}
     </div>
