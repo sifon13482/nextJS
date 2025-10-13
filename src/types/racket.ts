@@ -1,9 +1,9 @@
 export interface IRacket {
-  id: number;
+  id?: number;
   name: string;
   imageUrl: string;
   price: number;
-  type: string;
+  type?: string;
   model?: string;
   year?: number;
   top10?: boolean;

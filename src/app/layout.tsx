@@ -1,5 +1,6 @@
 import { Footer } from "@/components/footer/footer";
 import { Header } from "@/components/header/header";
+import { UserProvider } from "@/context/userProvider/userProvider";
 import { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
 import { FC, ReactNode } from "react";
@@ -21,12 +22,7 @@ export const metadata: Metadata = {
 const RootLayout: FC<Readonly<LayoutProps>> = ({ children }) => {
   return (
     <html lang="en">
-      <body>
-        <NextTopLoader color={"red"} showSpinner={false}/>
-        <Header />
-        {children}
-        <Footer />
-      </body>
+      <body>{children}</body>
     </html>
   );
 };

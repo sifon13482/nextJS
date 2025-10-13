@@ -1,7 +1,7 @@
 import { HomeContainer } from "@/components/home/homeContainer";
 import { Suspense } from "react";
 
-const Page = () => {
+const HomePage = () => {
   return (
     <Suspense fallback={<div>racketsAll Loading.......</div>}>
       <HomeContainer />
@@ -9,4 +9,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default HomePage;

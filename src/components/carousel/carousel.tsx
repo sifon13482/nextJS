@@ -1,18 +1,14 @@
 "use client";
 
+import { IRacket } from "@/types/racket";
+import { ButtonDefault } from "../button/buttonDefault";
+import { RacketCard } from "../racketCard/racketCard";
 import styles from "./carusele.module.css";
 
 import React, { FC, useState } from "react";
 
 type CarouselProps = {
-  racketsAll: object[];
-};
-
-type DisplayedRackets = {
-  id?: number;
-  imageUrl?: string;
-  name?: string;
-  model?: string;
+  racketsAll: IRacket[];
 };
 
 export const Carousel: FC<CarouselProps> = ({ racketsAll }) => {
@@ -29,24 +25,26 @@ export const Carousel: FC<CarouselProps> = ({ racketsAll }) => {
     setIndex(newIndex >= racketsAll.length ? 0 : newIndex);
   };
 
+  if (displayedRackets === undefined) return null;
+
   return (
     <div className={styles.container}>
       <div className={styles.items}>
         {displayedRackets.map(
-          ({ id, imageUrl, name, model }: DisplayedRackets) => (
-            <p key={id}>
-              <img className={styles.img} src={imageUrl} />
-              <br></br>
-              {name}
-              <br></br>
-              {model}
-            </p>
+          ({ id, imageUrl, name, model, price }: IRacket) => (
+            <RacketCard
+              key={id}
+              name={name}
+              imageUrl={imageUrl}
+              model={model}
+              price={price}
+            />
           )
         )}
       </div>
       <div>
-        <button onClick={handlePrevious}>Previous</button>
-        <button onClick={handleNext}>Next</button>
+        <ButtonDefault onClick={handlePrevious} name={"Previous"} />
+        <ButtonDefault onClick={handleNext} name={"Next"} />
       </div>
     </div>
   );
