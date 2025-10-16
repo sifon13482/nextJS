@@ -8,7 +8,7 @@ interface FavoriteParams {
   isFavorite: boolean;
 }
 
-export const handeleFavorite = async ({ id, isFavorite }: FavoriteParams) => {
+export const handleFavorite = async ({ id, isFavorite }: FavoriteParams) => {
   const cookiesStore = cookies();
 
   const url = `http://localhost:4000/api/product/${id}/favorite`;

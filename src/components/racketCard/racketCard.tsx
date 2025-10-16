@@ -10,7 +10,7 @@ import {
   useIsFavoriteById,
   useSetIsFavorite,
 } from "@/context/favoriteProvider/hooks";
-// import { handeleFavorite } from "./handleFavorite";
+// import { handleFavorite } from "./handleFavorite";
 
 interface FavoriteProps {
   id: number;
@@ -18,12 +18,12 @@ interface FavoriteProps {
 }
 
 const handleFavorite = async ({ isFavoriteGlobal, id }: FavoriteProps) => {
+  // const url = `http://localhost:4000/api/product/${id}/favorite`;
   const url = `http://localhost:4000/api/product/${id}/favorite`;
+  // console.log(url);
 
-
-  // console.log(isFavoriteGlobal)
   return isFavoriteGlobal
-  ? fetch(url, { credentials: "include", method: "DELETE" })
+    ? fetch(url, { credentials: "include", method: "DELETE" })
     : fetch(url, { credentials: "include", method: "POST" });
 };
 
@@ -38,17 +38,18 @@ export const RacketCard: FC<IRacket> = ({
   isFavorite,
 }) => {
   const { user } = use(UserContext);
-
+  
   // const [isPanding, startTransition] = useTransition();
-
+  
   const isFavoriteGlobal = useIsFavoriteById({
     id,
     isFavoriteInitial: isFavorite,
   });
-  useHydrateFavorite({
-    racketId: id,
-    isFavorite: isFavoriteGlobal,
-  });
+  
+  // useHydrateFavorite({
+  //   racketId: id,
+  //   isFavorite: isFavoriteGlobal,
+  // });
 
   const setFavorite = useSetIsFavorite();
 
@@ -56,9 +57,11 @@ export const RacketCard: FC<IRacket> = ({
     async ({ isFavoriteGlobal, id }: FavoriteProps) => {
       setFavorite({ id, isFavorite: !isFavoriteGlobal });
       await handleFavorite({ isFavoriteGlobal, id });
+      console.log(isFavoriteGlobal);
     },
     [setFavorite]
   );
+
 
   // const handeleClick = useCallback(({ id, isFavorite }: FavoriteProps) => {
   //   startTransition(async () => {
