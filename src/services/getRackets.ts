@@ -15,9 +15,12 @@ export const getRackets = async ({
       headers: {
         Cookie: cookieStore.toString(),
       },
+      // next: {
+      //   tags: ["getRackets"],
+      // },
     }
   );
-  console.log(cookieStore)
+  console.log(cookieStore);
 
   if (result.status === 404) {
     return { isError: false, data: undefined };

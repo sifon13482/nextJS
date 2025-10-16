@@ -1,5 +1,6 @@
 import { Footer } from "@/components/footer/footer";
 import { Header } from "@/components/header/header";
+import { FavoriteProvider } from "@/context/favoriteProvider";
 import { UserProvider } from "@/context/userProvider/userProvider";
 import { getUser } from "@/services/getUser";
 import NextTopLoader from "nextjs-toploader";
@@ -10,10 +11,12 @@ const Layout: FC<PropsWithChildren> = async ({ children }) => {
 
   return (
     <UserProvider user={data ?? null}>
-      <NextTopLoader color={"red"} showSpinner={false} />
-      <Header />
-      {children}
-      <Footer />
+      <FavoriteProvider>
+        <NextTopLoader color={"red"} showSpinner={false} />
+        <Header />
+        {children}
+        <Footer />
+      </FavoriteProvider>
     </UserProvider>
   );
 };
