@@ -31,13 +31,15 @@ export const Carousel: FC<CarouselProps> = ({ racketsAll }) => {
     <div className={styles.container}>
       <div className={styles.items}>
         {displayedRackets.map(
-          ({ id, imageUrl, name, model, price }: IRacket) => (
+          ({ id, imageUrl, name, model, price, userData }: IRacket) => (
             <RacketCard
               key={id}
+              id={id}
               name={name}
               imageUrl={imageUrl}
               model={model}
               price={price}
+              isFavorite={Boolean(userData?.isFavorite)}
             />
           )
         )}

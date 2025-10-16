@@ -1,5 +1,5 @@
 export interface IRacket {
-  id?: number;
+  id: number;
   name: string;
   imageUrl: string;
   price: number;
@@ -12,5 +12,9 @@ export interface IRacket {
   brand?: {
     id?: number;
     name?: string;
+  };
+  isFavorite: boolean;
+  userData?: {
+    isFavorite: boolean;
   };
 }

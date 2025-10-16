@@ -14,7 +14,7 @@ export const Rackets: FC<IRacketsArr> = ({ rackets }) => {
   return (
     <div className={styles.container}>
       {rackets.map(
-        ({ id, name, imageUrl, price, model, year, description }) => (
+        ({ id, name, imageUrl, price, model, year, description, userData }) => (
           <div key={id} className={styles.item}>
             <Link href={`/racket/${id}`}>
               <RacketCard
@@ -24,6 +24,8 @@ export const Rackets: FC<IRacketsArr> = ({ rackets }) => {
                 model={model}
                 year={year}
                 description={description}
+                isFavorite={Boolean(userData?.isFavorite)}
+                id={id}
               />
             </Link>
           </div>
